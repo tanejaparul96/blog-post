@@ -15,9 +15,8 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .input-container{
-    align-items: center;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 .submit-poem{
     align-items: center;
@@ -28,12 +27,22 @@
     padding: 10px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.input-container input{
+    width: 20%;
+    margin: 10px auto;
+    border-radius: 5px;
+    border: 1px dotted gainsboro;
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 3px;
+}
 .input-container textarea{
     font-family: Georgia, 'Times New Roman', Times, serif;
     height: 150px;
     width: 40%;
-    margin: 10px;
+    margin: 10px auto;
     border-radius: 5px;
     border: 2px solid #000;
     font-size: 20px;
+    padding: 3px;
 }

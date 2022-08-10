@@ -5,8 +5,7 @@ import './Poem.css'
   const [text, setText] = useState('')
   const [title, setTitle] = useState('')
   const handleSubmit=()=>{
-   console.log(text)
-   localStorage.setItem("key", text)
+   localStorage.setItem(title, text)
   }
   
   return (
@@ -14,15 +13,14 @@ import './Poem.css'
       <h2>
         Create a blog:
       </h2>
+      <div className='input-container'>
       <input type="text" value={title} onChange={event=>setTitle(event.target.value)} 
       placeholder='Enter unique title'/>
-      <div className='input-container'>
-    
       <textarea onChange={event=>setText(event.target.value)} defaultValue={text} 
       placeholder={'Enter text here'} />
       </div>
       <div className='submit-poem'> 
-      <button type='submit' onClick={handleSubmit}> Submit</button>
+      <button type='submit' onClick={handleSubmit} disabled={title && text !=="" ? false:true}> Submit</button>
       </div>
     </div>
   )
