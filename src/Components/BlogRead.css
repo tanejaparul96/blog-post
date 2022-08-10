@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .container{
+        height: 650px;
+        width: 100%;
+        /* background-color: rgb(255, 255, 0); */
+        color: #000;
+  }
+
+.poem-view-container{
+    display: flex;
+    flex-direction: column;
+}
+  .container h2{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.container-img{
+  margin:  20px auto;
+}
+.button-container{
+  margin:  10px auto;
+  
+}
+.button-edit{
+  padding: 10px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 10px;
+}
+.button-delete{
+  padding: 10px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 10px;
+}
+.poem-content-style{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    height: auto;
+    word-break: break-all;
+    width: 30%;
+    margin: 0 auto;
+  }

@@ -1,11 +1,21 @@
+//create poem 
+
 import React,{useState} from 'react';
-import './Poem.css'
+import './Blog.css'
+import { useNavigate } from "react-router";
 
  function PoemView() {
   const [text, setText] = useState('')
   const [title, setTitle] = useState('')
+  let navigate = useNavigate();
+
   const handleSubmit=()=>{
-   localStorage.setItem(title, text)
+   localStorage.setItem(title, text);
+   navigate({
+    pathname: '/poemview',
+    search: `?${title}`
+  });
+  //  navigate(`/poemview ${title}`);
   }
   
   return (
