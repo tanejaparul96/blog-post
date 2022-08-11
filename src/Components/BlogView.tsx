@@ -15,7 +15,6 @@ function PoemView() {
       pathname: "/poemview",
       search: `?${title}`,
     });
-    //  navigate(`/poemview ${title}`);
   };
 
   return (
@@ -36,7 +35,6 @@ function PoemView() {
       </div>
       <div className="submit-poem">
         <button type="submit" onClick={handleSubmit} disabled={title && text !== "" ? false : true}>
-          {" "}
           Submit
         </button>
       </div>
