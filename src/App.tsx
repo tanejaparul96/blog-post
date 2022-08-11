@@ -1,17 +1,15 @@
 import PoemCreate from "./Components/BlogView";
-import { Routes, Route, } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import PoemRead from "./Components/BlogRead";
 import BlogEdit from "./Components/BlogEdit";
 
-
 function App() {
-
   return (
-  <>
-  <Routes>
+    <>
+      <Routes>
         <Route path="/" element={<PoemCreate />} />
         <Route path="poemview" element={<PoemRead />} />
-        <Route path="blogEdit" element={<BlogEdit/>}/>
+        <Route path="blogEdit" element={<BlogEdit />} />
       </Routes>
     </>
   );

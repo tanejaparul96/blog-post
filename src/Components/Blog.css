@@ -1,50 +1,50 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-.container{
-    height: 650px;
-    width: 100%;
-    /* background-color: rgb(255, 255, 0); */
-    color: #000;
-    background-image: url(../images/poet-create-bg.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.container h2{
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.container {
+  height: 650px;
+  width: 100%;
+  /* background-color: rgb(255, 255, 0); */
+  color: #000;
+  background-image: url(../images/poet-create-bg.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.input-container{
-    display: flex;
-    flex-direction: column;
+.container h2 {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
-.submit-poem{
-    align-items: center;
-    display: flex;
-    justify-content: center;
+.input-container {
+  display: flex;
+  flex-direction: column;
 }
-.submit-poem button{
-    padding: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.submit-poem {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
-.input-container input{
-    width: 20%;
-    margin: 10px auto;
-    border-radius: 5px;
-    border: 1px dotted blue;
-    font-size: 15px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    padding: 3px;
+.submit-poem button {
+  padding: 10px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
-.input-container textarea{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    height: 150px;
-    width: 40%;
-    margin: 10px auto;
-    border-radius: 5px;
-    border: 2px solid #000;
-    font-size: 20px;
-    padding: 3px;
+.input-container input {
+  width: 20%;
+  margin: 10px auto;
+  border-radius: 5px;
+  border: 1px dotted blue;
+  font-size: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 3px;
+}
+.input-container textarea {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  height: 150px;
+  width: 40%;
+  margin: 10px auto;
+  border-radius: 5px;
+  border: 2px solid #000;
+  font-size: 20px;
+  padding: 3px;
 }
