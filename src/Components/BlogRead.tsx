@@ -3,6 +3,7 @@
 
 import './BlogRead.css'
 import { useNavigate } from "react-router";
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,7 +20,10 @@ export default function PoemRead() {
   const handlePoemDelete=()=>{
     window.localStorage.removeItem(getBlogName);
     navigate('/')
-
+  }
+  const objectData:object={
+    blogName: getBlogName,
+    img: imgSrc,
   }
   return (
     <div className='container'>
@@ -29,7 +33,11 @@ export default function PoemRead() {
     <img src={imgSrc} alt={getBlogName} />
     </div>
     <div className='button-container'>
-      <button className='button-edit' >Edit</button>
+      <button className='button-edit' >
+      <Link to="/blogEdit" state={{ data: objectData }}>
+      Edit
+        </Link>
+      </button>
       <button className='button-delete'  onClick={handlePoemDelete} >Delete</button>
   </div>
     <div className='poem-content-style'> 
