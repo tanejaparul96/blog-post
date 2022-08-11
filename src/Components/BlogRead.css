@@ -30,6 +30,9 @@
   font-family: Georgia, "Times New Roman", Times, serif;
   margin: 10px;
 }
+.button-container img {
+  height: 20px;
+}
 .button-delete {
   padding: 10px;
   font-family: Georgia, "Times New Roman", Times, serif;

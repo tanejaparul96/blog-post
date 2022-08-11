@@ -4,6 +4,8 @@
 import "./BlogRead.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import deleteIcon from "../images/delete-icon.png";
+import editIcon from "../images/edit-new-icon.png";
 
 export default function PoemRead() {
   const getBlogName: string = window.location.search.replace(/%20/g, " ").split("?")[1];
@@ -11,8 +13,7 @@ export default function PoemRead() {
   //replace method is also not best solution need another solution for that can't handle '
   // if we add extra space at end it can't handle that as well
   const getPoemContent = localStorage?.getItem(getBlogName);
-  const imgSrc = "https://picsum.photos/200";
-  console.log(getPoemContent, getBlogName);
+  const imgSrc: string = "https://picsum.photos/200";
   let navigate = useNavigate();
 
   const handlePoemDelete = () => {
@@ -33,11 +34,11 @@ export default function PoemRead() {
         <div className="button-container">
           <button className="button-edit">
             <Link to="/blogEdit" state={{ data: objectData }}>
-              Edit
+              <img src={editIcon} alt="Edit Blog" />
             </Link>
           </button>
           <button className="button-delete" onClick={handlePoemDelete}>
-            Delete
+            <img src={deleteIcon} alt="Delete Blog" />
           </button>
         </div>
         <div className="poem-content-style">{getPoemContent}</div>

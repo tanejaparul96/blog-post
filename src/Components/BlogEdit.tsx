@@ -32,6 +32,7 @@ function BlogEdit() {
             onChange={(event) => setText(event.target.value)}
             value={text}
             placeholder={"Enter text here"}
+            style={{ height: "250px" }}
           />
         </div>
         <div className="button-container">
