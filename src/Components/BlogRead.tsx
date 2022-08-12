@@ -1,14 +1,14 @@
-//read compoenent will now include edit functionality and updating current localstorage with updates
-//delete implemented
-
+import { useState } from "react";
 import "./BlogRead.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import deleteIcon from "../images/delete-icon.png";
 import editIcon from "../images/edit-new-icon.png";
+import Popup from "./ConfirmationPopUp/Popup";
 
 export default function PoemRead() {
   const getBlogName: string = window.location.search.replace(/%20/g, " ").split("?")[1];
+  // const [show, setShow] = useState(false);
   // split func is jugaad to remove "?" from url please look at code"
   //replace method is also not best solution need another solution for that can't handle '
   // if we add extra space at end it can't handle that as well
@@ -16,14 +16,24 @@ export default function PoemRead() {
   const imgSrc: string = "https://picsum.photos/200";
   let navigate = useNavigate();
 
+  const [visibility, setVisibility] = useState(false);
+
+  const handleClosePopUp = () => {
+    setVisibility(false);
+  };
+
   const handlePoemDelete = () => {
+    setVisibility(false);
     window.localStorage.removeItem(getBlogName);
     navigate("/");
   };
+
   const objectData: object = {
     blogName: getBlogName,
     img: imgSrc,
   };
+  const message: string =
+    "Are you sure you want to delete this blog? if pressed on confirm it can't be seen again";
   return (
     <div className="container">
       <div className="poem-view-container">
@@ -37,9 +47,18 @@ export default function PoemRead() {
               <img src={editIcon} alt="Edit Blog" />
             </Link>
           </button>
-          <button className="button-delete" onClick={handlePoemDelete}>
+          <button
+            className="button-delete"
+            onClick={() => setVisibility((prevState) => !prevState)}
+          >
             <img src={deleteIcon} alt="Delete Blog" />
           </button>
+          <Popup
+            show={visibility}
+            message={message}
+            handlePoem={() => handlePoemDelete()}
+            onClose={handleClosePopUp}
+          />
         </div>
         <div className="poem-content-style">{getPoemContent}</div>
       </div>
