@@ -2,7 +2,6 @@ import PoemCreate from "./Components/BlogView";
 import { Routes, Route } from "react-router-dom";
 import PoemRead from "./Components/BlogRead";
 import BlogEdit from "./Components/BlogEdit";
-// import Popup from "./Components/ConfirmationPopUp/Popup";
 
 function App() {
   return (
