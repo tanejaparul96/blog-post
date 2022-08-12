@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import "./Blog.css";
 import { useNavigate } from "react-router";
+import {PLACEHOLDER_MESSAGES} from '../Components/Constants/Constant'
 
 function PoemView() {
   const [text, setText] = useState("");
@@ -25,12 +26,12 @@ function PoemView() {
           type="text"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
-          placeholder="Enter unique title"
+          placeholder={PLACEHOLDER_MESSAGES.ENTER_TITLE}
         />
         <textarea
           onChange={(event) => setText(event.target.value)}
           defaultValue={text}
-          placeholder={"Enter text here"}
+          placeholder={PLACEHOLDER_MESSAGES.ENTER_TEXT}
         />
       </div>
       <div className="submit-poem">

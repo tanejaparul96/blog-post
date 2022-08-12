@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./BlogRead.css";
 import Popup from "./ConfirmationPopUp/Popup";
+import { POPUP_MESSAGES , PLACEHOLDER_MESSAGES } from "./Constants/Constant";
 
 function BlogEdit() {
   const navigate: any = useNavigate();
@@ -37,7 +38,7 @@ function BlogEdit() {
           <textarea
             onChange={(event) => setText(event.target.value)}
             value={text}
-            placeholder={"Enter text here"}
+            placeholder={PLACEHOLDER_MESSAGES.ENTER_TEXT}
             style={{ height: "250px" }}
           />
         </div>
@@ -49,7 +50,7 @@ function BlogEdit() {
             Discard Changes
             <Popup
               show={visibility}
-              message={"Are you sure you want to discard new added changes"}
+              message={POPUP_MESSAGES.DISCARD_CHANGES_MESSAGE}
               handlePoem={() => handleDiscardChange()}
               onClose={handleClosePopUp}
             />

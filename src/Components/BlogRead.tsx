@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import deleteIcon from "../images/delete-icon.png";
 import editIcon from "../images/edit-new-icon.png";
 import Popup from "./ConfirmationPopUp/Popup";
+import { POPUP_MESSAGES } from "./Constants/Constant";
 
 export default function PoemRead() {
   const getBlogName: string = window.location.search.replace(/%20/g, " ").split("?")[1];
-  // const [show, setShow] = useState(false);
   // split func is jugaad to remove "?" from url please look at code"
   //replace method is also not best solution need another solution for that can't handle '
   // if we add extra space at end it can't handle that as well
@@ -32,8 +32,7 @@ export default function PoemRead() {
     blogName: getBlogName,
     img: imgSrc,
   };
-  const message: string =
-    "Are you sure you want to delete this blog? if pressed on confirm it can't be seen again";
+  
   return (
     <div className="container">
       <div className="poem-view-container">
@@ -55,7 +54,7 @@ export default function PoemRead() {
           </button>
           <Popup
             show={visibility}
-            message={message}
+            message={POPUP_MESSAGES.CONFIRMATION_MESSAGE}
             handlePoem={() => handlePoemDelete()}
             onClose={handleClosePopUp}
           />
