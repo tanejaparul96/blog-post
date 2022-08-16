@@ -28,7 +28,7 @@ export default function blogReducer(state = { ...initialState }, action: any) {
     case DELETE_BLOG_ENTRY: {
       return {
         ...state,
-        blogs: state.blogs.filter((i) => i.id !== action.blogContent),
+        blogs: state.blogs.filter((item) => item.id !== action.blogId),
       };
     }
     default:

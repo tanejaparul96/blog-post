@@ -19,6 +19,6 @@ export const setUpdateBlog = (blogContent: object) => {
 export const deleteBlogEntry = (id: string) => {
   return {
     type: DELETE_BLOG_ENTRY,
-    blogContent: id,
+    blogId: id,
   };
 };
