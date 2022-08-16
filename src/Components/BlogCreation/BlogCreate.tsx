@@ -3,15 +3,22 @@
 import React, { useState } from "react";
 import "./Blog.css";
 import { useNavigate } from "react-router";
-import { PLACEHOLDER_MESSAGES } from "../Components/Constants/Constant";
+import { PLACEHOLDER_MESSAGES } from "../Constants/Constant";
+import { setBlogCreated } from "../../Redux/Actions/Actions";
+import { useDispatch } from "react-redux";
 
 function PoemView() {
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   let navigate = useNavigate();
+  let dispatch = useDispatch();
 
   const handleSubmit = () => {
-    localStorage.setItem(title, text);
+    let blogContent = {
+      id: title,
+      blogContent: text,
+    };
+    dispatch(setBlogCreated(blogContent));
     navigate({
       pathname: "/poemview",
       search: `?${title}`,

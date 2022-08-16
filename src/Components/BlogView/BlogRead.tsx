@@ -2,21 +2,23 @@ import { useState } from "react";
 import "./BlogRead.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import deleteIcon from "../images/delete-icon.png";
-import editIcon from "../images/edit-new-icon.png";
-import Popup from "./ConfirmationPopUp/Popup";
-import { POPUP_MESSAGES } from "./Constants/Constant";
+import deleteIcon from "../../images/delete-icon.png";
+import editIcon from "../../images/edit-new-icon.png";
+import Popup from "../ConfirmationPopUp/Popup";
+import { POPUP_MESSAGES } from "../Constants/Constant";
+import { useSelector } from "react-redux";
+import { deleteBlogEntry } from "../../Redux/Actions/Actions";
+import { useDispatch } from "react-redux";
 
-export default function PoemRead() {
+function PoemRead() {
+  const [visibility, setVisibility] = useState(false);
   const getBlogName: string = window.location.search.replace(/%20/g, " ").split("?")[1];
-  // split func is jugaad to remove "?" from url please look at code"
-  //replace method is also not best solution need another solution for that can't handle '
-  // if we add extra space at end it can't handle that as well
-  const getPoemContent = localStorage?.getItem(getBlogName);
   const imgSrc: string = "https://picsum.photos/200";
   let navigate = useNavigate();
+  let dispatch = useDispatch();
 
-  const [visibility, setVisibility] = useState(false);
+  const blogObject = useSelector((state: any) => state.blogs);
+  const item = blogObject.find((item: { id: string }) => item.id === getBlogName);
 
   const handleClosePopUp = () => {
     setVisibility(false);
@@ -24,7 +26,8 @@ export default function PoemRead() {
 
   const handlePoemDelete = () => {
     setVisibility(false);
-    window.localStorage.removeItem(getBlogName);
+    console.log(item.id);
+    dispatch(deleteBlogEntry(item.id));
     navigate("/");
   };
 
@@ -36,7 +39,7 @@ export default function PoemRead() {
   return (
     <div className="container">
       <div className="poem-view-container">
-        <h2> {getBlogName}</h2>
+        <h2> {item.id}</h2>
         <div className="container-img">
           <img src={imgSrc} alt={getBlogName} />
         </div>
@@ -59,8 +62,10 @@ export default function PoemRead() {
             onClose={handleClosePopUp}
           />
         </div>
-        <div className="poem-content-style">{getPoemContent}</div>
+        <div className="poem-content-style">{item.blogContent}</div>
       </div>
     </div>
   );
 }
+
+export default PoemRead;

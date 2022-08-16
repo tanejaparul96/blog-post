@@ -1,7 +1,8 @@
-import PoemCreate from "./Components/BlogView";
+import PoemCreate from "./Components/BlogCreation/BlogCreate";
 import { Routes, Route } from "react-router-dom";
-import PoemRead from "./Components/BlogRead";
-import BlogEdit from "./Components/BlogEdit";
+import PoemRead from "./Components/BlogView/BlogRead";
+import BlogEdit from "./Components/BlogEdit/BlogEdit";
+// import Homepage from "./Components/Homepage/Homepage";
 
 function App() {
   return (

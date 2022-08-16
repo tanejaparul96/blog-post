@@ -1,28 +1,36 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./BlogRead.css";
-import Popup from "./ConfirmationPopUp/Popup";
-import { POPUP_MESSAGES, PLACEHOLDER_MESSAGES } from "./Constants/Constant";
+import "../BlogView/BlogRead.css";
+import Popup from "../ConfirmationPopUp/Popup";
+import { POPUP_MESSAGES, PLACEHOLDER_MESSAGES } from "../Constants/Constant";
+import { useSelector, useDispatch } from "react-redux";
+import { setUpdateBlog } from "../../Redux/Actions/Actions";
 
 function BlogEdit() {
   const navigate: any = useNavigate();
   const location: any = useLocation();
+  const dispatch = useDispatch();
   const blogName: string = location.state.data.blogName;
-  const blogData: any = localStorage.getItem(blogName);
-  const [text, setText] = useState(blogData);
+  const blogObjectArray = useSelector((state: any) => state.blogs) || "";
+  const blogObject = blogObjectArray.find(
+    (item: { id: string }) => item.id === location.state.data.blogName,
+  );
+  const [text, setText] = useState(blogObject.blogContent);
   const [visibility, setVisibility] = useState(false);
-  console.log(text);
   const handleSavingChanges = () => {
-    localStorage.setItem(blogName, text);
+    let blogContent = {
+      id: blogObject.id,
+      blogContent: text,
+    };
+    dispatch(setUpdateBlog(blogContent));
     navigate({
       pathname: "/poemview",
-      search: `?${blogName}`,
+      search: `?${blogObject?.id}`,
     });
   };
   const handleDiscardChange = () => {
     setVisibility(false);
-    const oldContent = localStorage.getItem(blogName);
-    setText(oldContent);
+    setText(blogObject.blogContent);
   };
   const handleClosePopUp = () => {
     setVisibility(false);
@@ -30,7 +38,7 @@ function BlogEdit() {
   return (
     <div>
       <div className="poem-view-container">
-        <h2> {blogName}</h2>
+        <h2> {blogObject.id}</h2>
         <div className="container-img">
           <img src={location.state.data.img} alt={blogName} />
         </div>
