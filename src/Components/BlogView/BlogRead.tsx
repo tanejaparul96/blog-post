@@ -9,6 +9,7 @@ import { POPUP_MESSAGES } from "../Constants/Constant";
 import { useSelector } from "react-redux";
 import { deleteBlogEntry } from "../../Redux/Actions/Actions";
 import { useDispatch } from "react-redux";
+import Header  from "../Homepage/Header";
 
 function PoemRead() {
   const [visibility, setVisibility] = useState(false);
@@ -38,6 +39,7 @@ function PoemRead() {
 
   return (
     <div className="container">
+      <Header/>
       <div className="poem-view-container">
         <h2> {item.id}</h2>
         <div className="container-img">

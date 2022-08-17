@@ -6,6 +6,8 @@ import { useNavigate } from "react-router";
 import { PLACEHOLDER_MESSAGES } from "../Constants/Constant";
 import { setBlogCreated } from "../../Redux/Actions/Actions";
 import { useDispatch } from "react-redux";
+import Header  from "../Homepage/Header";
+
 
 function PoemView() {
   const [text, setText] = useState("");
@@ -27,6 +29,7 @@ function PoemView() {
 
   return (
     <div className="container">
+      <Header/>
       <h2>Create a blog:</h2>
       <div className="input-container">
         <input

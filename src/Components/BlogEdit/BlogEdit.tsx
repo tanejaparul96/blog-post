@@ -5,6 +5,8 @@ import Popup from "../ConfirmationPopUp/Popup";
 import { POPUP_MESSAGES, PLACEHOLDER_MESSAGES } from "../Constants/Constant";
 import { useSelector, useDispatch } from "react-redux";
 import { setUpdateBlog } from "../../Redux/Actions/Actions";
+import Header  from "../Homepage/Header";
+
 
 function BlogEdit() {
   const navigate: any = useNavigate();
@@ -38,6 +40,7 @@ function BlogEdit() {
   return (
     <div>
       <div className="poem-view-container">
+        <Header/>
         <h2> {blogObject.id}</h2>
         <div className="container-img">
           <img src={location.state.data.img} alt={blogName} />
